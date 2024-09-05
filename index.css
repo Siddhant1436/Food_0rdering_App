@@ -1,4 +1,5 @@
 .header {
+    margin: 10px;
     display: flex;
     justify-content: space-between;
     border: 1px solid black;
@@ -43,4 +44,8 @@
 .res-logo {
     width: 100%;
     
+}
+.ilterBtn {
+    margin: 10px;
+    cursor: pointer;
 }
