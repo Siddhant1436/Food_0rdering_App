@@ -733,6 +733,201 @@ const resObj = [
           }
         },
         "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
-      }}
+      }},
+      {"info": {
+        "id": "240796",
+        "name": "Pizza Hut",
+        "cloudinaryImageId": "RX_THUMBNAIL/IMAGES/VENDOR/2024/7/17/0a9e79e9-34bf-464a-be7b-9fa6b386369f_240796.jpg",
+        "locality": "Gandhinagar",
+        "areaName": "Gandhinagar",
+        "costForTwo": "₹600 for two",
+        "cuisines": [
+          "Pizzas"
+        ],
+        "avgRating": 4.2,
+        "parentId": "721",
+        "avgRatingString": "4.2",
+        "totalRatingsString": "4.9K+",
+        "sla": {
+          "deliveryTime": 21,
+          "lastMileTravel": 1.2,
+          "serviceability": "SERVICEABLE",
+          "slaString": "20-25 mins",
+          "lastMileTravelString": "1.2 km",
+          "iconType": "ICON_TYPE_EMPTY"
+        },
+        "availability": {
+          "nextCloseTime": "2024-09-07 03:00:00",
+          "opened": true
+        },
+        "badges": {
+          
+        },
+        "isOpen": true,
+        "type": "F",
+        "badgesV2": {
+          "entityBadges": {
+            "imageBased": {
+              
+            },
+            "textExtendedBadges": {
+              
+            },
+            "textBased": {
+              
+            }
+          }
+        },
+        "aggregatedDiscountInfoV3": {
+          "header": "ITEMS",
+          "subHeader": "AT ₹189"
+        },
+        "orderabilityCommunication": {
+          "title": {
+            
+          },
+          "subTitle": {
+            
+          },
+          "message": {
+            
+          },
+          "customIcon": {
+            
+          }
+        },
+        "differentiatedUi": {
+          "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+          "differentiatedUiMediaDetails": {
+            "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+            "lottie": {
+              
+            },
+            "video": {
+              
+            }
+          }
+        },
+        "reviewsSummary": {
+          
+        },
+        "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+        "restaurantOfferPresentationInfo": {
+          
+        },
+        "externalRatings": {
+          "aggregatedRating": {
+            "rating": "4.1",
+            "ratingCount": "1.1K+"
+          },
+          "source": "GOOGLE",
+          "sourceIconImageId": "v1704440323/google_ratings/rating_google_tag"
+        },
+        "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
+      }},
+      {"info": {
+        "id": "44913",
+        "name": "Balista",
+        "cloudinaryImageId": "usxbaha6apbjkihek8xh",
+        "locality": "Infocity Road",
+        "areaName": "Sargasan Gandhinagar",
+        "costForTwo": "₹250 for two",
+        "cuisines": [
+          "American",
+          "Jain"
+        ],
+        "avgRating": 4.4,
+        "veg": true,
+        "parentId": "40846",
+        "avgRatingString": "4.4",
+        "totalRatingsString": "2.9K+",
+        "promoted": true,
+        "adTrackingId": "cid=17804882~p=6~adgrpid=17804882#ag1~mp=SWIGGY_IN~bl=FOOD~aet=RESTAURANT~aeid=44913~eid=b5bf620c-42fe-46b3-97cb-36e223eb654b~srvts=1725623224189~collid=83631",
+        "sla": {
+          "deliveryTime": 19,
+          "lastMileTravel": 0.9,
+          "serviceability": "SERVICEABLE",
+          "slaString": "15-20 mins",
+          "lastMileTravelString": "0.9 km",
+          "iconType": "ICON_TYPE_EMPTY"
+        },
+        "availability": {
+          "nextCloseTime": "2024-09-06 23:00:00",
+          "opened": true
+        },
+        "badges": {
+          "imageBadges": [
+            {
+              "imageId": "v1695133679/badges/Pure_Veg111.png",
+              "description": "pureveg"
+            }
+          ]
+        },
+        "isOpen": true,
+        "type": "F",
+        "badgesV2": {
+          "entityBadges": {
+            "textBased": {
+              
+            },
+            "imageBased": {
+              "badgeObject": [
+                {
+                  "attributes": {
+                    "imageId": "v1695133679/badges/Pure_Veg111.png",
+                    "description": "pureveg"
+                  }
+                }
+              ]
+            },
+            "textExtendedBadges": {
+              
+            }
+          }
+        },
+        "aggregatedDiscountInfoV3": {
+          "header": "50% OFF",
+          "subHeader": "UPTO ₹100"
+        },
+        "orderabilityCommunication": {
+          "title": {
+            
+          },
+          "subTitle": {
+            
+          },
+          "message": {
+            
+          },
+          "customIcon": {
+            
+          }
+        },
+        "differentiatedUi": {
+          "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+          "differentiatedUiMediaDetails": {
+            "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+            "lottie": {
+              
+            },
+            "video": {
+              
+            }
+          }
+        },
+        "reviewsSummary": {
+          
+        },
+        "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+        "restaurantOfferPresentationInfo": {
+          
+        },
+        "externalRatings": {
+          "aggregatedRating": {
+            "rating": "--"
+          }
+        },
+        "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
+      }},
 ];
 export default resObj;

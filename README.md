@@ -30,5 +30,5 @@ useEffect()
 when with the help of setList we change the list it will automatically updates the component, which doesn't happen with
 normal js variables.
 
-whenever the state variable updates the react re-renders the components.
+whenever the state variable updates the react re-renders the components(triggers the reconciliationf).
 React is only good at DOM operations

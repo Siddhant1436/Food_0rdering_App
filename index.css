@@ -1,5 +1,6 @@
 .header {
     margin: 10px;
+    padding: auto;
     display: flex;
     justify-content: space-between;
     border: 1px solid black;
@@ -45,7 +46,26 @@
     width: 100%;
     
 }
-.ilterBtn {
+.filter {
+    display: flex;
+}
+.filterBtn {
     margin: 10px;
+    cursor: pointer;
+}
+
+.shimmer-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+.shimmer-card {
+    width: 200px;
+    height: 400px;
+    background-color: #f0f0f0;
+    margin: 10px;
+}
+
+.login {
+    padding: 20px;
     cursor: pointer;
 }
