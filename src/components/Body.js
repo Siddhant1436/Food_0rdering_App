@@ -2,11 +2,13 @@ import RestaurantCard from "./RestaurantCard";
 import resObj from "../utils/mockData";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 const Body =() => {
 
     //local state variable 
-    const [listOfRestaurants, setListofRestaurants] = useState(resObj);
+    const [listOfRestaurants, setListofRestaurants] = useState([]);
     const [searchText, setSearchText] = useState("");
+    const [filteredRestaurants, setFilteredRestaurants] = useState([]);
     console.log("it got rendered,because the state variable changed, and for the first time before calling the api it was rendered");
     //we actually are destructring the array here;
     // const arr = useState(resObj);
@@ -14,23 +16,17 @@ const Body =() => {
     useEffect(()=>{
         fetchData();
     }, []);
-    // const options = {
-    //     method: 'GET',
-    //     headers: {
-    //         'x-rapidapi-key': '007bfc1dcamsh54354873de33bc6p1a423djsna52bb560261c',
-    //         'x-rapidapi-host': 'foodiefetch.p.rapidapi.com'
-    //     }
-    // };
-
     const fetchData = async() => {
         console.log("fetch the data");
-        // try {
-        //     const response = await fetch("https://foodiefetch.p.rapidapi.com/swiggy?query=grandamas%20cafe%20pune",options);
-        //     const result = await response.text();
-        //     console.log(result);
-        // } catch (error) {
-        //     console.error(error);
-        // }
+
+            const response = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.02760&lng=72.58710&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+            const result = await response.json();
+            console.log(result);
+            console.log(result.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
+        
+
+        setListofRestaurants(result?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setFilteredRestaurants(result?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
 };
     //shimmer UI is better than this 
     //conditional rendering
@@ -38,7 +34,7 @@ const Body =() => {
     //     return <Shimmer />;
     // }
 
-    return  (
+    return  listOfRestaurants.length===0?(<Shimmer />):(
         <div className="Body"> 
             <div className="filter">
                 <div className="search">
@@ -50,22 +46,21 @@ const Body =() => {
                     onChange={(e)=>{
                         const currentSearchText = e.target.value;
                         setSearchText(e.target.value)
-                        const filteredRestaurant=resObj.filter((res) => {
+                        const newList=listOfRestaurants.filter((res) => {
                             return res.info.name.toLowerCase().includes(currentSearchText.toLowerCase()); 
                         });
 
-                        setListofRestaurants(filteredRestaurant);
+                        setFilteredRestaurants(newList);
                         }}
                     />
                     
                     <button
                     onClick={()=>{
-                        const filteredRestaurant=resObj.filter((res) => {
+                        const newList1=listOfRestaurants.filter((res) => {
                             return res.info.name.toLowerCase().includes(searchText.toLowerCase()); 
                         });
 
-                        setListofRestaurants(filteredRestaurant);
-                        console.log(filteredRestaurant);
+                       setFilteredRestaurants(newList1);
                     }}>
                     Search</button>
                 
@@ -73,18 +68,20 @@ const Body =() => {
                 <button 
                 className="filterBtn"
                 onClick={ ()=>{
-                    const filteredList = resObj.filter(
+                    const newList2 = listOfRestaurants.filter(
                         (res) => res.info.avgRating>4.3
                     );
-                    setListofRestaurants(filteredList);
+                    setFilteredRestaurants(newList2);
                 }}
                 >Top Rated Restaurants</button>
             </div>
             
             <div className="res-container">
-        {listOfRestaurants.length > 0 ? (
-            listOfRestaurants.map((restaurant) => (
-                <RestaurantCard key={restaurant.info.id} resData={restaurant} />
+        {filteredRestaurants.length > 0 ? (
+            filteredRestaurants.map((restaurant) => (
+                <Link to={"./restaurants/"+restaurant.info.id} key={restaurant.info.id}>
+                <RestaurantCard  resData={restaurant} />
+                </Link>
             ))) : 
             (<div>No restaurants found</div>)
         }
