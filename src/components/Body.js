@@ -3,6 +3,7 @@ import resObj from "../utils/mockData";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useInternetStatus from "../utils/useInternetStatus";
 const Body =() => {
 
     //local state variable 
@@ -28,6 +29,12 @@ const Body =() => {
         setListofRestaurants(result?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setFilteredRestaurants(result?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
 };
+
+    const internetStatus = useInternetStatus();
+
+    if(internetStatus===false){
+        return <h1>Looks like you are offline, Please check your internet Connection</h1>
+    }
     //shimmer UI is better than this 
     //conditional rendering
     // if(listOfRestaurants.length===0){
