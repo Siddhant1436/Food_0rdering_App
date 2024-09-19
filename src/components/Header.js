@@ -18,19 +18,25 @@ const Header = () =>{
     })
     const internetStatus = useInternetStatus();
     return (
-        <div className="header">
+        <div className="flex justify-between bg-white shadow-lg">
             <div className="logo-container">
-                <img className="logo" src={LOGO_URL}/>
+                <img className="w-48" src={LOGO_URL}/>
             </div>
-            <div className="nav-items">
-                <ul>
-                    <li>InternetStatus: {internetStatus? "🟢":"🔴" }</li>
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/about">About Us</Link></li>
-                    <li><Link to="/contact">Contact Us</Link></li>
-                    <li><Link to="/grocery">Grocery</Link></li>
-                    <li>Cart</li>
-                    <button className="login"
+            <div className="flex items-center">
+                <ul className="flex p-4 m-4">
+                    <li className="px-4 hover:text-slate-100">
+                    InternetStatus: {internetStatus? "🟢":"🔴" }</li>
+                    <li className="px-4 hover:font-medium">
+                    <Link to="/">Home</Link></li>
+                    <li className="px-4 hover:font-medium">
+                    <Link to="/about">About Us</Link></li>
+                    <li className="px-4 hover:font-medium">
+                    <Link to="/contact">Contact Us</Link></li>
+                    <li className="px-4 hover:font-medium">
+                    <Link to="/grocery">Grocery</Link></li>
+                    <li className="px-4 hover:font-medium">
+                    Cart</li>
+                    <button className="login hover:font-medium"
                         onClick={()=>{
                             btnName=== "Login" ? setBtnName("Logout"): setBtnName("Login");
                         }}

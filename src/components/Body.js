@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard,{withOpenLabel} from "./RestaurantCard";
 import resObj from "../utils/mockData";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
@@ -10,6 +10,8 @@ const Body =() => {
     const [listOfRestaurants, setListofRestaurants] = useState([]);
     const [searchText, setSearchText] = useState("");
     const [filteredRestaurants, setFilteredRestaurants] = useState([]);
+    const OpenResCard = withOpenLabel(RestaurantCard);
+
     console.log("it got rendered,because the state variable changed, and for the first time before calling the api it was rendered");
     //we actually are destructring the array here;
     // const arr = useState(resObj);
@@ -43,55 +45,58 @@ const Body =() => {
 
     return  listOfRestaurants.length===0?(<Shimmer />):(
         <div className="Body"> 
-            <div className="filter">
-                <div className="search">
+            <div className="filter flex">
+                <div className="search my-2 p-4">
                     
                     <input 
-                    type="text"
-                    className="search-box"
-                    value={searchText} 
-                    onChange={(e)=>{
-                        const currentSearchText = e.target.value;
-                        setSearchText(e.target.value)
-                        const newList=listOfRestaurants.filter((res) => {
+                        type="text"
+                        className="search-box border border-solid border-black mx-1 px-4 rounded-lg bg-slate-50 hover:bg-slate-100"
+                        value={searchText} 
+                        onChange={(e)=>{
+                            const currentSearchText = e.target.value;
+                            setSearchText(e.target.value)
+                           const newList=listOfRestaurants.filter((res) => {
                             return res.info.name.toLowerCase().includes(currentSearchText.toLowerCase()); 
-                        });
+                            });
 
-                        setFilteredRestaurants(newList);
+                            setFilteredRestaurants(newList);
                         }}
                     />
                     
-                    <button
-                    onClick={()=>{
-                        const newList1=listOfRestaurants.filter((res) => {
+                    <button className="search-btn bg-green-200 px-4 py-0.5 rounded-lg  hover:bg-green-300"
+                        onClick={()=>{
+                            const newList1=listOfRestaurants.filter((res) => {
                             return res.info.name.toLowerCase().includes(searchText.toLowerCase()); 
                         });
 
                        setFilteredRestaurants(newList1);
-                    }}>
+                        }}>
                     Search</button>
                 
                 </div>
-                <button 
-                className="filterBtn"
-                onClick={ ()=>{
-                    const newList2 = listOfRestaurants.filter(
+                <div className="search my-2 p-4">
+                    <button 
+                    className="filterBtn  bg-green-200 px-4 py-0.5 rounded-lg hover:bg-green-300"
+                        onClick={ ()=>{
+                        const newList2 = listOfRestaurants.filter(
                         (res) => res.info.avgRating>4.3
-                    );
+                        );
                     setFilteredRestaurants(newList2);
-                }}
-                >Top Rated Restaurants</button>
+                    }}
+                    >Top Rated Restaurants</button>
+                </div>
+                
             </div>
             
-            <div className="res-container">
-        {filteredRestaurants.length > 0 ? (
-            filteredRestaurants.map((restaurant) => (
-                <Link to={"./restaurants/"+restaurant.info.id} key={restaurant.info.id}>
-                <RestaurantCard  resData={restaurant} />
-                </Link>
-            ))) : 
-            (<div>No restaurants found</div>)
-        }
+            <div className="res-container flex flex-wrap justify-center">
+                {filteredRestaurants.length > 0 ? (
+                filteredRestaurants.map((restaurant) => (
+                    <Link to={"./restaurants/"+restaurant.info.id} key={restaurant.info.id}>
+                    {restaurant.info.isOpen?<OpenResCard resData={restaurant}/>:<RestaurantCard  resData={restaurant} />}
+                    </Link>
+                ))) : 
+                (<div>No restaurants found</div>)
+            }
             </div>
         </div>
     )
